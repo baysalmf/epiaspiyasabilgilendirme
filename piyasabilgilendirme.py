@@ -157,31 +157,28 @@ df_merge = df_ptf.merge(df_dmd, on='date')
 
 fig, ax1 = plt.subplots(figsize=(16, 8))
 
-ax1.plot(df_dmd.index, df_dmd['consumption'] / 1000, 'g-', label='Tüketim (GWh)')
+ax1.plot(df_dmd.index, df_dmd['consumption'] / 1000, 'r-', label='Tüketim (GWh)')
 ax1.set_xlabel('Tarih')
 ax1.set_ylabel('Tüketim (GWh)', color='red')
 ax1.set_ylim(0, 1200)
 ax1.tick_params(axis='y', labelcolor='red')
 
-# Create a second y-axis for df_ptf
 ax2 = ax1.twinx()
-ax2.plot(df_ptf.index, df_ptf['price'], 'b-', label='PTF')
-ax2.set_ylabel('PTF', color='b')
+ax2.plot(df_ptf.index, df_ptf['price'], 'gray', label='PTF')
+ax2.set_ylabel('PTF', color='gray')
 ax2.set_ylim(0, 5000)
-ax2.tick_params(axis='y', labelcolor='b')
+ax2.tick_params(axis='y', labelcolor='gray')
 
-# Format x-axis to show dates clearly
 ax1.xaxis.set_major_locator(mdates.DayLocator(interval=1))
 ax1.xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-fig.autofmt_xdate()  # Rotate dates for better readability
+fig.autofmt_xdate()
 
 for date, value in df_ptf['price'].items():
-    ax2.annotate(f'{value:.0f}', (date, value), textcoords="offset points", xytext=(0,5), ha='center', color='b')
+    ax2.annotate(f'{value:.0f}', (date, value), textcoords="offset points", xytext=(0,5), ha='center', color='gray')
 
 for date, value in df_dmd['consumption'].items():
     ax1.annotate(f'{value/1000:.0f}', (date, value/1000), textcoords="offset points", xytext=(0,5), ha='center', color='r')
 
-# Show the plot
 fig.tight_layout()
 plt.title('Gerçekleşen Tük. (GWh) vs PTF')
 plt.show()
