@@ -55,7 +55,7 @@ ttf_data = yf.Ticker(ttf_symbol)
 henry_hub_data = yf.Ticker(henry_symbol)
 ttf_history = ttf_data.history(period="1y")
 ttf_history['Close_new'] = ttf_history['Close']* euro_to_usd * 10.55
-henry_hub_history = henry_hub_data.history(period="1y")
+henry_hub_history = henry_hub_data.history(start=start_date, end=end_date)
 henry_hub_history['Close_new'] = henry_hub_history['Close']*35.71
 last_date_ttf = ttf_history.index[-1]
 last_price_ttf = ttf_history['Close'].iloc[-1] * euro_to_usd * 10.55
@@ -72,11 +72,11 @@ plt.title(f"Emtia Fiyatları - {datetime.strftime(now_day, '%D')}")
 plt.xlabel('Tarih')
 plt.ylabel('Fiyat($)')
 plt.legend()
-plt.grid(True)
+plt.grid(False)
 plt.show()
 
-my_mail = 'm.furkan.baysal@hotmail.com'
-my_password = 'Zorlu.2024'
+my_mail = '' ** username
+my_password = ''*** password 
 def date_converter(date_string):
     new_string = date_string+"T00:00:00+03:00"
     return new_string
