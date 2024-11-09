@@ -11,8 +11,8 @@ now_day = datetime.now()
 import seffaflik2 as sf
 import matplotlib.dates as mdates
 
-start_date = '2024-07-23'
-end_date = '2024-08-30'
+start_date = '2024-10-09'
+end_date = '2024-11-09'
 
 brent_symbol = "BZ=F"
 coal_symbol = "MTF=F"
@@ -28,7 +28,7 @@ last_price_brent = brent_history['Close'].iloc[-1]
 last_date_coal = coal_history.index[-1]
 last_price_coal = coal_history['Close'].iloc[-1]
 
-plt.figure(figsize=(12,8))
+plt.figure(figsize=(12, 8))
 plt.plot(brent_history.index, brent_history['Close'], label='Brent Petrol($/varil)', color='red')
 plt.scatter(last_date_brent, last_price_brent, color='red')
 plt.text(last_date_brent, last_price_brent, f'{last_price_brent:.2f} USD', color='red', fontsize=12, ha='left', va='bottom')
@@ -75,8 +75,8 @@ plt.legend()
 plt.grid(False)
 plt.show()
 
-my_mail = '' ** username
-my_password = ''*** password 
+my_mail = 'm.furkan.baysal@hotmail.com'
+my_password = 'Zorlu.2024'
 def date_converter(date_string):
     new_string = date_string+"T00:00:00+03:00"
     return new_string
