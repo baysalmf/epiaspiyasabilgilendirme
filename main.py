@@ -75,8 +75,8 @@ plt.legend()
 plt.grid(False)
 plt.show()
 
-my_mail = 'm.furkan.baysal@hotmail.com'
-my_password = 'Zorlu.2024'
+my_mail = ''
+my_password = ''
 def date_converter(date_string):
     new_string = date_string+"T00:00:00+03:00"
     return new_string
